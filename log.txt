@@ -1,0 +1,5 @@
+Today: 8/8/22
+14 days ago: 7/25/22
+Error on line 1 in cur_dates.txt
+Error on line 1 in arc_dates.txt
+Error on line 1 in cur_dates.txt
