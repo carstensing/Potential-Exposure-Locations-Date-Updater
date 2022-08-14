@@ -1,3 +1,10 @@
-Today: 8/12/22
-14 days ago: 7/29/22
-Num lines: 501
+Today: 8/13/22
+14 days ago: 7/30/22
+Num lines: 28
+Error on line 5 in cur_dates.txt. 7/26//22 is an invalid Date.
+Error on line 5 in cur_dates.txt. 7/26//22 is an invalid Date.
+Error on line 9 in cur_dates.txt. 7/2722 is an invalid Date.
+Error on line 9 in cur_dates.txt. 7/2722 is an invalid Date.
+Error on line 23 in cur_dates.txt. 8/66/22 is an invalid Date.
+Error on line 23 in cur_dates.txt. 8/66/22 is an invalid Date.
+Execution completed successfully.
