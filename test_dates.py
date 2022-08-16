@@ -21,7 +21,8 @@ class TestDateUpdater(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_input_file_lengths(self):
+    def test_get_num_lines(self):
+        # TODO
         pass
 
     def test_num_current_dates(self):
@@ -45,6 +46,26 @@ class TestDateUpdater(unittest.TestCase):
         self.assertEqual(du.num_newer_dates(["2/7/22"], comparison_date), 1)
         self.assertEqual(du.num_newer_dates(["2/7/22", "12/3/21", "9/1/20", "5/6/12"], comparison_date), 3)
 
+    def test_get_cur_output_string_and_invalid_dates(self):
+        dates_line = "4/14/22, 2/7/22, 12/3/21, 12/1/21, 10/18/21\n"
+        dates_list = ["4/14/22", "2/7/22", "12/3/21", "12/1/21", "10/18/21"]
+        self.assertEqual(du.get_cur_output_string_and_invalid_dates(dates_line, Date("5/1/22")), ("\n", dates_list))
+        self.assertEqual(du.get_cur_output_string_and_invalid_dates(dates_line, Date("3/4/22")), ("4/14/22\n", dates_list[1:]))
+        self.assertEqual(du.get_cur_output_string_and_invalid_dates(dates_line, Date("12/2/21")), ("4/14/22, 2/7/22, 12/3/21\n", dates_list[3:]))
+        self.assertEqual(du.get_cur_output_string_and_invalid_dates(dates_line, Date("4/1/14")), (dates_line, []))
+        self.assertEqual(du.get_cur_output_string_and_invalid_dates("", Date("4/1/14")), ("\n", []))
+
+    def test_get_arc_output_string(self):
+        invalid_dates_line = "4/14/22, 2/7/22, 12/3/21, 12/1/21, 10/18/21\n"
+        invalid_dates = ["4/14/22", "2/7/22", "12/3/21", "12/1/21", "10/18/21"]
+        self.assertEqual(du.get_arc_output_string("\n", invalid_dates), invalid_dates_line)
+        self.assertEqual(du.get_arc_output_string("3/8/16\n", invalid_dates), "4/14/22, 2/7/22, 12/3/21, 12/1/21, 10/18/21, 3/8/16\n")
+        self.assertEqual(du.get_arc_output_string("3/8/16, text\n", invalid_dates), "4/14/22, 2/7/22, 12/3/21, 12/1/21, 10/18/21, 3/8/16, text\n")
+        self.assertEqual(du.get_arc_output_string("4/15/22\n", invalid_dates), "4/15/22\n")
+        self.assertEqual(du.get_arc_output_string("10/18/21, 3/8/16\n", invalid_dates), "4/14/22, 2/7/22, 12/3/21, 12/1/21, 10/18/21, 3/8/16\n")
+        self.assertEqual(du.get_arc_output_string("\n", []), "\n")
+        self.assertEqual(du.get_arc_output_string(invalid_dates_line, []), invalid_dates_line)
+
 # if module is being run directly (not imported)
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
