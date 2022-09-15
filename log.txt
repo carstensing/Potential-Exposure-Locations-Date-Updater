@@ -1,5 +1,6 @@
-Today: 8/16/22
-14 days ago: 8/2/22
-Num lines: 501
-Error on line 5 in cur_dates.txt. 7/25/2022 is an invalid Date.
-Execution completed successfully.
+Today: 8/18/22
+14 days ago: 8/4/22
+-------------------------------------------------------
+No errors
+-------------------------------------------------------
+Done

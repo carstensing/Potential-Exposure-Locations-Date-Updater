@@ -1,0 +1,15 @@
+Today: 8/18/22
+14 days ago: 8/4/22
+-------------------------------------------------------
+Error on line 41 in cur_dates.txt. Dates are not in order from newest to oldest.
+Error on line 54 in cur_dates.txt. Dates are not in order from newest to oldest.
+Error on line 83 in cur_dates.txt. 7/19/2022 is an invalid Date.
+Error on line 117 in cur_dates.txt. 7/11/2022 is an invalid Date.
+Error on line 148 in cur_dates.txt. Dates are not in order from newest to oldest.
+Error on line 168 in cur_dates.txt. 8/6/2022 is an invalid Date.
+Error on line 181 in cur_dates.txt. 7/12/2022 is an invalid Date.
+Error on line 289 in cur_dates.txt. Dates are not in order from newest to oldest.
+Error on line 360 in cur_dates.txt. Dates are not in order from newest to oldest.
+Error on line 375 in cur_dates.txt. 8/11/228/9/22 is an invalid Date.
+-------------------------------------------------------
+Done

@@ -13,12 +13,14 @@ def get_num_lines(file_1_path: str, file_2_path: str) -> int:
         while f1_line != "":
             f1_line = file_1.readline()
             file_1_num_lines += 1
+            # readline() will read a line with content twice if it ends with EOF
             if f1_line and f1_line[-1] != "\n":
                 break
 
         while f2_line != "":
             f2_line = file_2.readline()
             file_2_num_lines += 1
+            # readline() will read a line with content twice if it ends with EOF
             if f2_line and f2_line[-1] != "\n":
                 break
 
@@ -51,6 +53,7 @@ def num_newer_dates(list: "list[str]", comparison_date: Date, inclusive: bool = 
         
         if previous_date < cur_date:
             raise Exception("Dates are not in order from newest to oldest.\n")
+
         if inclusive and cur_date >= comparison_date:
             num_newer_dates += 1
         elif not inclusive and cur_date > comparison_date:
@@ -123,6 +126,8 @@ def main():
     OUTPUT_FILE_2 = "./Output Files/archived_dates_updated.txt"
     LOG_FILE = "./log.txt"
 
+    errors = False
+
     try:
         log = open(LOG_FILE, "w")
         
@@ -136,9 +141,11 @@ def main():
         # check that both files contain the same amount of lines
         num_lines_in_cur_dates = get_num_lines(INPUT_FILE_1, INPUT_FILE_2)
         if num_lines_in_cur_dates == -1:
+            log.write("-------------------------------------------------------\n")
             raise Exception("Error: Input files have an unequal number of lines")
         else:
-            log.write("Num lines: " + str(num_lines_in_cur_dates) + "\n")
+            # log.write("Num lines: " + str(num_lines_in_cur_dates) + "\n")
+            log.write("-------------------------------------------------------\n")
 
         try:
             # open files
@@ -164,6 +171,7 @@ def main():
                 except Exception as e:
                     # raise e
                     log.write("Error on line " + str(counter+1) + " " + e.args[0])
+                    errors = True  
 
                 counter += 1
         finally:
@@ -174,11 +182,14 @@ def main():
             arc_dates_file_updated.close()
     except Exception as exception:
         # raise e
-        print(exception.args[0])
+        # print(exception.args[0])
         log.write(exception.args[0] + "\n")
+    else:
+        if not errors:
+            log.write("No errors\n")
     finally:
-        print("Execution complete.")
-        log.write("Execution completed successfully.\n")
+        log.write("-------------------------------------------------------\n")
+        log.write("Done")
         log.close()
 
 if __name__ == "__main__":

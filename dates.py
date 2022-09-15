@@ -8,7 +8,7 @@ class Date:
         self.month = int(values[0])
         self.day = int(values[1])
         if len(values) > 3 or self.day > 31 or self.month > 12 or self.year > 99:
-            raise Exception("Date formatted incorrectly") 
+            raise Exception("Date formatted incorrectly\n") 
     
     def __lt__(self, other):
         if self.year < other.year:
