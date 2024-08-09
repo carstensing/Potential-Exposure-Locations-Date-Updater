@@ -1,4 +1,4 @@
-from dates import Date
+from date import Date
 import re
 
 # Gets the number of lines for two files.

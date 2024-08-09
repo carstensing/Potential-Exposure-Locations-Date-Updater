@@ -1,6 +1,8 @@
-Today: 8/18/22
-14 days ago: 8/4/22
+Today: 8/9/24
+14 days ago: 7/26/24
 -------------------------------------------------------
-No errors
+Error on line 9 in cur_dates.txt. 7/27/2022 is an invalid Date.
+Error on line 10 in arc_dates.txt. Date formatted incorrectly
+Error on line 40 in cur_dates.txt. Dates are not in order from newest to oldest.
 -------------------------------------------------------
 Done

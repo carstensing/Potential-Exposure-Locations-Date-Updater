@@ -1,6 +1,6 @@
 import unittest
 import date_updater as du
-from dates import Date
+from date import Date
 
 class TestDateUpdater(unittest.TestCase):
     # Ran before all test
